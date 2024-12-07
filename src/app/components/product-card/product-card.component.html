@@ -1,1 +1,25 @@
-<p>product-card works!</p>
+<div *ngIf="product">
+    <div class="card product-card shadow-lg p-3">
+        <!-- delete product button -->
+        <button type="button" class="position-absolute top-0 end-0 m-2 delete-btn" aria-label="Close" (click)="onDelete()">
+            <img src="assets/delete.png" alt="Delete" class="delete-icon">
+        </button>
+            
+        <!-- body card -->
+        <div class="card-body">
+        <h5 class="card-title text-lilac">{{ product.title }}</h5>
+        <div class="card-subtitle text-muted">Category: {{ product.category }}</div>
+        <div class="card-text fw-bold">Price: {{ product.price | currency }}</div>
+        <div class="card-text fw-medium">Employee: <span class="text-lilac">{{ product.employee || 'Not assigned' }}</span></div>
+        <div class="description-box mt-3">
+            {{ product.description || 'No description available' }}
+        </div>
+        </div>
+
+        <!-- footer -->
+    <div class="card-footer text-center no-border">
+        <span class="footer-text text-lilac" (click)="onShowReviews()">Show Reviews</span>
+    </div>
+
+    </div>
+</div>
