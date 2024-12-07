@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { InventoryService } from '../../services/inventory.service';
 import { Product } from '../../interfaces/product.interface';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class DashboardService {
+export class ProductListService {
     
   constructor(private inventoryService: InventoryService) {}
 
@@ -19,7 +18,7 @@ export class DashboardService {
         products.splice(0, products.length, ...data);
       },
       error: (error) => {
-        console.error('Errore nel recupero dei prodotti:', error);
+        console.error('error retrieve products:', error);
       },
     });
   }
