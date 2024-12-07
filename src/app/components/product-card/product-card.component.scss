@@ -1,8 +1,8 @@
 @use "../../styles/colors.scss" as *;
 
 .product-card {
-  max-height: 420px;
-  min-width: 328px;
+  height: 420px;
+  min-width: 300px;
   border-radius: 8px;
   border: 2px solid $color-secondary;
   background: $color-gray-light;
@@ -53,10 +53,6 @@
   }
 }
 
-.text-lilac {
-  color: $color-secondary;
-}
-
 .delete-btn {
   background: none;
   border: none;
@@ -67,8 +63,6 @@
 .delete-icon {
   width: 32px;
   height: 32px;
-  object-fit: contain;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.2);

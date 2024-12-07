@@ -7,12 +7,12 @@
             
         <!-- body card -->
         <div class="card-body">
-        <h5 class="card-title text-lilac">{{ product.title }}</h5>
-        <div class="card-subtitle text-muted">Category: {{ product.category }}</div>
-        <div class="card-text fw-bold">Price: {{ product.price | currency }}</div>
-        <div class="card-text fw-medium">Employee: <span class="text-lilac">{{ product.employee || 'Not assigned' }}</span></div>
+        <h5 class="card-title text-lilac">{{ product.data.title }}</h5>
+        <div class="card-subtitle text-muted">Category: {{ product.data.category }}</div>
+        <div class="card-text fw-bold">Price: {{ product.data.price | currency }}</div>
+        <div class="card-text fw-medium">Employee: <span class="text-lilac">{{ product.data.employee || 'Not assigned' }}</span></div>
         <div class="description-box mt-3">
-            {{ product.description || 'No description available' }}
+            {{ product.data.description || 'No description available' }}
         </div>
         </div>
 
