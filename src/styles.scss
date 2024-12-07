@@ -1,2 +1,8 @@
+@use "../src/app/styles/colors.scss" as *;
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-lilac {
+    color: $color-secondary;
+}
