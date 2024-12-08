@@ -11,8 +11,7 @@ import { CommonModule } from '@angular/common';
 export class ProductCardComponent implements OnInit {
   @Input() product?: Product;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onDelete() {
     console.log('onDelete');
@@ -20,5 +19,9 @@ export class ProductCardComponent implements OnInit {
 
   onShowReviews() {
     console.log('onShowReviews');
+  }
+
+  onEdit() {
+    console.log('onEdit');
   }
 }

@@ -1,5 +1,11 @@
 <div *ngIf="product">
     <div class="card product-card shadow-lg p-3">
+
+        <!-- edit product button -->
+        <button type="button" class="position-absolute top-0 end-0 m-2 me-5 edit-btn" aria-label="Edit" (click)="onEdit()">
+            <img src="assets/pen.png" alt="Edit" class="edit-icon">
+        </button>
+
         <!-- delete product button -->
         <button type="button" class="position-absolute top-0 end-0 m-2 delete-btn" aria-label="Close" (click)="onDelete()">
             <img src="assets/delete.png" alt="Delete" class="delete-icon">
