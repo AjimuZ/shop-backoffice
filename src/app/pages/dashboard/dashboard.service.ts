@@ -6,7 +6,7 @@ import { Product } from '../../interfaces/product.interface';
   providedIn: 'root',
 })
 
-export class ProductListService {
+export class DashboardService {
     
   constructor(private inventoryService: InventoryService) {}
 

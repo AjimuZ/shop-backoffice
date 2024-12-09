@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { ProductListService } from './product-list.service';
+import { Component, Input } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CommonModule } from '@angular/common';
@@ -13,13 +12,6 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent {
 
-  products: Product[] = [];
-
-  constructor(private productListService: ProductListService) {}
-  
-  async ngOnInit(): Promise<void> {
-    // product list initialization
-    await this.productListService.loadProducts(this.products);
-  }
+  @Input() products?: Product[] = [];
 
 }
