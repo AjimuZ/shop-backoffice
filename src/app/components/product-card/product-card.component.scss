@@ -20,20 +20,6 @@
   overflow-y: auto;
   font-size: 0.9rem;
   color: $color-dark;
-
-  // custom Scrollbar
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: $color-secondary;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f0f0f0;
-  }
 }
 
 .card-footer {

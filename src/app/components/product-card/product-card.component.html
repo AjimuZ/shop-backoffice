@@ -17,15 +17,32 @@
         <div class="card-subtitle text-muted">Category: {{ product.data.category }}</div>
         <div class="card-text fw-bold">Price: {{ product.data.price | currency }}</div>
         <div class="card-text fw-medium">Employee: <span class="text-lilac">{{ product.data.employee || 'Not assigned' }}</span></div>
-        <div class="description-box mt-3">
+        <div class="description-box mt-3 scrollable-content">
             {{ product.data.description || 'No description available' }}
         </div>
         </div>
 
         <!-- footer -->
-    <div class="card-footer text-center no-border">
-        <span class="footer-text text-lilac" (click)="onShowReviews()">Show Reviews</span>
+        <div class="card-footer text-center no-border">
+            <span class="footer-text text-lilac" (click)="onShowReviews()"  data-bs-toggle="modal" [attr.data-bs-target]="'#productReviewsModal-' + product.id">Show Reviews</span>
+        </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade modal-xl" [id]="'productReviewsModal-' + product.id" tabindex="-1" aria-labelledby="productReviewsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <div class="w-100 text-center">
+                        <h1 class="modal-title fs-5 " id="productReviewsModalLabel">Reviews</h1>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <app-reviews [reviews]="product.data.reviews" ></app-reviews>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>

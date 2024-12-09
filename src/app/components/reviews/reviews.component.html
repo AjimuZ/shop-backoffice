@@ -1,0 +1,23 @@
+<div class="container p-4 rounded-3 reviews-container scrollable-content">
+
+  <!-- check reviews -->
+  <div *ngIf="reviews && reviews.length > 0; else noReviews">
+
+    <div class="d-flex align-items-center mb-3 p-3 bg-light rounded shadow-sm" 
+         *ngFor="let review of reviews">
+
+      <img src="assets/review.png" alt="review icon" class="review-icon me-3">
+      <div>
+        <p class="mb-0">{{ review }}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- case no reviews -->
+  <ng-template #noReviews>
+    <p class="text-center text-muted fs-5">No reviews available for this product.</p>
+  </ng-template>
+
+</div>
