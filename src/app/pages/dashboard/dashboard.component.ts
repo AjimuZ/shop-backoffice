@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductListComponent } from "../../components/product-list/product-list.component";
 import { Product } from '../../interfaces/product.interface';
 import { DashboardService } from './dashboard.service';
+import { AddProductComponent } from "../../components/add-product/add-product.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ProductListComponent],
+  imports: [ProductListComponent, AddProductComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

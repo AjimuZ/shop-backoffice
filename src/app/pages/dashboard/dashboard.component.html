@@ -1,1 +1,26 @@
+<h2 class="text-center text-lilac mb-4">Product Dashboard</h2>
+
+<!-- button trigger modal add product-->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+    add product
+</button>
+
 <app-product-list [products]="products" ></app-product-list>
+
+<!-- modal add product -->
+
+<div class="modal fade modal-lg" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <div class="w-100 text-center">
+                    <h1 class="modal-title fs-5 " id="addProductModalLabel">Add Product</h1>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-add-product></app-add-product>
+            </div>
+        </div>
+    </div>
+</div>

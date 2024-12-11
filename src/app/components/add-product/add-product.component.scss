@@ -1,0 +1,30 @@
+@use "../../styles/colors.scss" as *;
+@use "sass:color";
+
+.form-control {
+    border-color: $color-secondary; 
+    border-width: 2px;
+}
+
+.form-control:focus {
+    border-color: $color-secondary;
+    box-shadow: 0 0 10px $color-secondary;
+}
+
+// custom button
+.btn-lilac {
+    background-color: $color-secondary ;
+    color: white;
+    border-color: $color-secondary; 
+}
+
+.btn-lilac:hover {
+    background-color: color.scale($color-secondary, $lightness: -5%);
+    color: white  !important;
+}
+
+.btn-lilac:focus {
+    background-color: color.scale($color-secondary, $lightness: -10%);
+    color: white;
+}
+
