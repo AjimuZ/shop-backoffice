@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CommonModule } from '@angular/common';
+import { LayoutType } from '../../enums/layout-type';
 
 
 @Component({
@@ -13,5 +14,6 @@ import { CommonModule } from '@angular/common';
 export class ProductListComponent {
 
   @Input() products?: Product[] = [];
+  @Input() layout?: LayoutType;
 
 }
