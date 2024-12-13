@@ -1,1 +1,44 @@
-<p>navbar works!</p>
+<nav class="navbar mb-3">
+    <div class="container-fluid d-flex mt-2">
+        <!-- left: shop Name -->
+        <div>
+            <a class="nav-link" routerLink="/dashboard">
+                <h2 class="text-center text-lilac">{{shopName}}</h2>
+            </a>
+        </div>
+
+
+        <!-- right -->
+        <div class="d-flex">
+
+            <ul class="navbar-nav flex-row justify-content-center">
+                <!-- navigation Links -->
+                <li class="nav-item me-4">
+                    <a class="nav-link text-dark fs-5 px-2" routerLink="/dashboard">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fs-5 px-2" routerLink="/chart">
+                         Chart
+                    </a>
+                </li>
+                <!-- buttons trigger modal add product-->
+                <li class="nav-item" *ngIf="!hideButtons">
+                    <div class="d-flex flex-column align-items-center px-4 text-center" (click)="onAddProduct()">
+                        <img src="assets/add.png" alt="Add" class="add-icon">
+                        <span>Add product</span>
+                    </div>
+                </li>
+                <li class="nav-item" *ngIf="!hideButtons">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img [src]="'assets/' + layoutIcon + '-layout.png'" alt="Add" class="change-layout-icon" (click)="onToggleLayout()">
+                        <span>Change Layout</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>

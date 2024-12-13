@@ -1,11 +1,9 @@
-<h2 class="text-center text-lilac mb-4">Product Dashboard</h2>
+<app-navbar (addProductEvent)="openAddProductModal()" 
+            (toggleLayoutEvent) ="toggleLayout($event)"
+            [currentlayout] = "layout">
+</app-navbar>
 
-<!-- button trigger modal add product-->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
-    add product
-</button>
-
-<app-product-list [products]="products" ></app-product-list>
+<app-product-list [products]="products" [layout]="layout"></app-product-list>
 
 <!-- modal add product -->
 

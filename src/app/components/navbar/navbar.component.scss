@@ -1,0 +1,14 @@
+.add-icon, .change-layout-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-item {
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.container-fluid {
+    max-width: 1200px;
+}
