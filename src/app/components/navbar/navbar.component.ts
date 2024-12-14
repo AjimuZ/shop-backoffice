@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit{
   constructor(private navbarService: NavbarService) {}
 
   async ngOnInit(): Promise<void> {
-    this.layoutIcon = this.currentlayout;
+    this.layoutIcon = this.currentlayout === LayoutType.grid ? LayoutType.panel: LayoutType.grid;
     this.shopName = await this.navbarService.loadShopName();
   }
 
