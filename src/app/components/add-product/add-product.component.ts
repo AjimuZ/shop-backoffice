@@ -78,7 +78,7 @@ export class AddProductComponent {
       const productData: ProductForm = {
         title: form.form.value.title || undefined,
         category: form.form.value.category || undefined,
-        price: form.form.value.price? form.form.value.price.substring(1) : undefined,
+        price: this.price || NaN,
         employee: (form.form.value.employeeFirstName +' '+form.form.value.employeeLastName).trim() || undefined,
         description: form.form.value.description || null,
         reviews: []

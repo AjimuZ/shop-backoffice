@@ -29,7 +29,7 @@
                 <!-- input price -->
                 <input type="number" class="form-control" id="priceFormControlInput" name="price" placeholder="0.00" [(ngModel)]="price" (blur)="formatPrice()" *ngIf="showInputPrice" required>
                 <!-- formatted output price -->
-                <input type="text" class="form-control" id="priceFormControlOutput" name="price" placeholder="0.00" ngModel [(ngModel)]="priceFormatted" (click)="formatPrice()" *ngIf="!showInputPrice"  required>
+                <input type="text" class="form-control" id="priceFormControlOutput" name="price" placeholder="0.00" [(ngModel)]="priceFormatted" (click)="formatPrice()" *ngIf="!showInputPrice"  required>
             </div>
         </div>
 
