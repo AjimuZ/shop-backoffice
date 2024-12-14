@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { CommonModule } from '@angular/common';
 import { ReviewsComponent } from "../reviews/reviews.component";
+import { ProductCardService } from './product-card.service';
 
 @Component({
   selector: 'app-product-card',
@@ -12,19 +13,16 @@ import { ReviewsComponent } from "../reviews/reviews.component";
 export class ProductCardComponent implements OnInit {
   @Input() product?: Product;
 
+  constructor(private productCardService: ProductCardService) {}
+
   ngOnInit(): void {
     
   }
 
   onDelete() {
-    console.log('onDelete');
+    if(this.product && this.product.id){
+      this.productCardService.deleteProductById(this.product.id);
+  }
   }
 
-  onShowReviews() {
-    console.log('onShowReviews');
-  }
-
-  onEdit() {
-    console.log('onEdit');
-  }
 }
