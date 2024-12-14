@@ -3,25 +3,33 @@
         <!-- Product Name -->
         <div class="row mb-4">
             <div class="col">
-                <label for="titleFormControlInput" class="form-label fw-bold">Product Name</label>
-                <input type="text" class="form-control" id="titleFormControlInput" name="title" placeholder="Product Name" ngModel>
+                <label for="titleFormControlInput" class="form-label fw-bold">Product Name
+                    <span class="text-danger fw-light">*required</span>
+                </label>
+                <input type="text" class="form-control" id="titleFormControlInput" name="title" placeholder="Product Name" ngModel required>
             </div>
         </div>
 
         <!-- Category -->
         <div class="row mb-4">
             <div class="col">
-                <label for="categoryFormControlInput" class="form-label fw-bold">Category</label>
-                <input type="text" class="form-control" id="categoryFormControlInput" name="category" placeholder="Category" ngModel>
+                <label for="categoryFormControlInput" class="form-label fw-bold">Category
+                    <span class="text-danger fw-light">*required</span>
+                </label>
+                <input type="text" class="form-control" id="categoryFormControlInput" name="category" placeholder="Category" ngModel required>
             </div>
         </div>
 
         <!-- Price -->
         <div class="row mb-4">
             <div class="col">
-                <label for="priceFormControlInput" class="form-label fw-bold">Price</label>
-                <input type="number" class="form-control" id="priceFormControlInput" name="price" placeholder="0.00" [(ngModel)]="price" (blur)="formatPrice()" *ngIf="showInputPrice">
-                <input type="text" class="form-control" id="priceFormControlOutput" name="price" placeholder="0.00" ngModel [(ngModel)]="priceFormatted" (click)="formatPrice()" *ngIf="!showInputPrice">
+                <label for="priceFormControlInput" class="form-label fw-bold">Price
+                    <span class="text-danger fw-light">*required</span>
+                </label>
+                <!-- input price -->
+                <input type="number" class="form-control" id="priceFormControlInput" name="price" placeholder="0.00" [(ngModel)]="price" (blur)="formatPrice()" *ngIf="showInputPrice" required>
+                <!-- formatted output price -->
+                <input type="text" class="form-control" id="priceFormControlOutput" name="price" placeholder="0.00" ngModel [(ngModel)]="priceFormatted" (click)="formatPrice()" *ngIf="!showInputPrice"  required>
             </div>
         </div>
 

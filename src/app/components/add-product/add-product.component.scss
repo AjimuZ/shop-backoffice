@@ -28,3 +28,28 @@
     color: white;
 }
 
+.btn-lilac:not(:hover) {
+    background-color: $color-secondary;
+    color: white;
+    border-color: $color-secondary; 
+}
+
+// error form
+
+@keyframes vibrate {
+    0% { transform: translateX(-2px); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
+}
+  
+.form-control.submitted.ng-invalid {
+    border-color: $color-danger; 
+    border-width: 2px;
+}
+
+.form-control.submitted.ng-invalid.vibrate {
+    display: inline-block;
+    animation: vibrate 0.3s ease-in-out;
+}

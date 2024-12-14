@@ -1,6 +1,7 @@
+import { ProductForm } from './../../interfaces/product-form.interface';
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { FormGroup, FormBuilder, Validators, FormsModule, NgForm  } from '@angular/forms';
+import { FormsModule, NgForm  } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -22,6 +23,8 @@ export class AddProductComponent {
   
   // indicates if the price input should be focused
   priceOnFocus: boolean = false;
+
+  formIsSubmitted: boolean = false;
 
   constructor(private currencyPipe: CurrencyPipe, private renderer: Renderer2, private el: ElementRef) {}
 
@@ -53,14 +56,53 @@ export class AddProductComponent {
     this.priceOnFocus = false;
   }
 
+  addClassformElements(customClass: string): void{
+    const formElements = this.el.nativeElement.querySelectorAll('form input, form textarea');
+    formElements.forEach((element: HTMLElement) => {
+      this.renderer.addClass(element, customClass);
+    });
+  }
+
+  removeClassformElements(customClass: string): void{
+    const formElements = this.el.nativeElement.querySelectorAll('form input, form textarea');
+    formElements.forEach((element: HTMLElement) => {
+      this.renderer.removeClass(element, customClass);
+    });
+  }
 
   onSubmit(form: NgForm) {
-    console.log(form.form.value);
+    this.formIsSubmitted = true;
+
+    if(form.valid){
+
+      const productData: ProductForm = {
+        title: form.form.value.title || undefined,
+        category: form.form.value.category || undefined,
+        price: form.form.value.price? form.form.value.price.substring(1) : undefined,
+        employee: (form.form.value.employeeFirstName +' '+form.form.value.employeeLastName).trim() || undefined,
+        description: form.form.value.description || null,
+        reviews: []
+      };
+  
+      console.log(productData);
+
+    } else {
+        // apply CSS classes to clearly highlight missing fields, allowing the user to identify them quickly
+        this.addClassformElements('submitted');
+        this.addClassformElements('vibrate');
+        setTimeout(() => {
+          this.removeClassformElements('vibrate');
+        }, 300);
+    }
+
   }
 
   // lifecycle: ensures the price input field is focused after each view check
   ngAfterViewChecked(): void {
     this.setPriceFocus();
+    if(this.formIsSubmitted){
+      this.addClassformElements('submitted');
+    }
   }
   
 }
