@@ -1,3 +1,4 @@
+import { NavbarService } from './navbar.service';
 import { CommonModule } from '@angular/common';
 import { LayoutType } from './../../enums/layout-type';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
@@ -18,12 +19,14 @@ export class NavbarComponent implements OnInit{
   @Input() currentlayout?: LayoutType;
   @Input() hideButtons: boolean = false;
   
-  shopName: string = 'Shop Backoffice';
+  shopName: string = '';
   layoutIcon?: LayoutType;
   
+  constructor(private navbarService: NavbarService) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.layoutIcon = this.currentlayout;
+    this.shopName = await this.navbarService.loadShopName();
   }
 
   onAddProduct() {
@@ -36,4 +39,5 @@ export class NavbarComponent implements OnInit{
 
     this.toggleLayoutEvent.emit(this.currentlayout);
   }
+  
 }
