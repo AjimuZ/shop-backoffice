@@ -1,10 +1,10 @@
-<form (ngSubmit)="onSubmit()">
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
     <div class="container p-4">
         <!-- Product Name -->
         <div class="row mb-4">
             <div class="col">
                 <label for="titleFormControlInput" class="form-label fw-bold">Product Name</label>
-                <input type="text" class="form-control" id="titleFormControlInput" placeholder="Product Name">
+                <input type="text" class="form-control" id="titleFormControlInput" name="title" placeholder="Product Name" ngModel>
             </div>
         </div>
 
@@ -12,7 +12,7 @@
         <div class="row mb-4">
             <div class="col">
                 <label for="categoryFormControlInput" class="form-label fw-bold">Category</label>
-                <input type="text" class="form-control" id="categoryFormControlInput" placeholder="Category">
+                <input type="text" class="form-control" id="categoryFormControlInput" name="category" placeholder="Category" ngModel>
             </div>
         </div>
 
@@ -20,7 +20,8 @@
         <div class="row mb-4">
             <div class="col">
                 <label for="priceFormControlInput" class="form-label fw-bold">Price</label>
-                <input type="number" class="form-control" id="priceFormControlInput" placeholder="0.00">
+                <input type="number" class="form-control" id="priceFormControlInput" name="price" placeholder="0.00" [(ngModel)]="price" (blur)="formatPrice()" *ngIf="showInputPrice">
+                <input type="text" class="form-control" id="priceFormControlOutput" name="price" placeholder="0.00" ngModel [(ngModel)]="priceFormatted" (click)="formatPrice()" *ngIf="!showInputPrice">
             </div>
         </div>
 
@@ -28,10 +29,10 @@
         <div class="row mb-4 align-items-end">
             <div class="col">
                 <label for="employeeNameFormControlInput" class="form-label fw-bold">Employee</label>
-                <input type="text" class="form-control" id="employeeNameFormControlInput" placeholder="First name">
+                <input type="text" class="form-control" id="employeeNameFormControlInput" name="employeeFirstName" placeholder="First name" ngModel>
             </div>
             <div class="col">
-                <input type="text" class="form-control" id="employeeSurnameFormControlInput" placeholder="Last name">
+                <input type="text" class="form-control" id="employeeSurnameFormControlInput" name="employeeLastName" placeholder="Last name" ngModel>
             </div>
         </div>
 
@@ -39,7 +40,7 @@
         <div class="row mb-4">
             <div class="col">
                 <label for="descriptionFormControlInput" class="form-label fw-bold">Description</label>
-                <textarea class="form-control" id="descriptionFormControlInput" placeholder="product description..." rows="4"></textarea>
+                <textarea class="form-control" id="descriptionFormControlInput" name="description" placeholder="product description..." rows="4" ngModel></textarea>
             </div>
         </div>
 
