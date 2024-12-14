@@ -3,7 +3,7 @@
     class="row g-4" 
     [ngClass]="{
       'row-cols-1': layout === 'panel', 
-      'row-cols-md-2 row-cols-lg-3': layout === 'grid'
+      'row-cols-sm-1 row-cols-md-2 row-cols-lg-3': layout === 'grid'
     }"
   >
     <ng-container *ngIf="products && products.length > 0">
