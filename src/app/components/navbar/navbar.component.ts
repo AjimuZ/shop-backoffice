@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit{
   }
 
   onToggleLayout() {
-    this.layoutIcon = this.currentlayout === LayoutType.grid ? LayoutType.grid : LayoutType.panel;
+    this.layoutIcon = this.layoutIcon === LayoutType.grid ? LayoutType.panel: LayoutType.grid;
     this.currentlayout = this.currentlayout === LayoutType.grid ? LayoutType.panel : LayoutType.grid;
 
     this.toggleLayoutEvent.emit(this.currentlayout);
