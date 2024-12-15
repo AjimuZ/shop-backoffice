@@ -12,7 +12,6 @@ import { ProductCardService } from './product-card.service';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product?: Product;
-  @Output() onDeleteProduct = new EventEmitter<string>();
 
   constructor(
     private productCardService: ProductCardService,
@@ -22,7 +21,6 @@ export class ProductCardComponent implements OnInit {
 
   async onDelete() {
     if (this.product && this.product.id) {
-      this.onDeleteProduct.emit(this.product.id);
       this.productCardService.deleteProductById(this.product.id);
     }
   }

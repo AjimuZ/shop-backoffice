@@ -5,6 +5,7 @@ import { DashboardService } from './dashboard.service';
 import { AddProductComponent } from '../../components/add-product/add-product.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { LayoutType } from '../../enums/layout-type';
+import { NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -14,13 +15,20 @@ import { LayoutType } from '../../enums/layout-type';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
-
   products: Product[] = [];
   layout: LayoutType = LayoutType.grid; // default layout
 
   constructor(
     private dashboardService: DashboardService,
-  ) {}
+    private router: Router
+  ) {
+    // listen to route changes
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
+  }
 
   async ngOnInit(): Promise<void> {
     // product list initialization
@@ -39,15 +47,17 @@ export class DashboardComponent implements OnInit {
   }
 
   closeModal(modal: HTMLElement) {
-    if(modal){
+    if (modal) {
       modal.hidden = true;
     }
-    const modalBackdrop = document.querySelector('.modal-backdrop.fade.show') as HTMLElement;
+    const modalBackdrop = document.querySelector(
+      '.modal-backdrop.fade.show'
+    ) as HTMLElement;
     if (modalBackdrop) {
       modalBackdrop.remove();
-    } 
+    }
   }
-  
+
   toggleLayout(layout: LayoutType) {
     this.layout = layout;
   }

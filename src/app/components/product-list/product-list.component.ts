@@ -16,11 +16,4 @@ export class ProductListComponent {
   @Input() layout?: LayoutType;
 
   constructor(private productListService: ProductListService) {}
-
-  deleteProduct(id: string): void {
-    console.log('Parent received ID:', id);
-    if (this.products) {
-      this.productListService.removeProductById(this.products, id);
-    }
-  }
 }

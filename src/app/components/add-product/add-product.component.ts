@@ -101,7 +101,7 @@ export class AddProductComponent {
 
       console.log(productData);
       this.addProductService.addProduct(productData);
-      //this.closeModalAddProductEvent.emit(false);
+      this.closeModalAddProductEvent.emit(false);
 
     } else {
       // apply CSS classes to clearly highlight missing fields, allowing the user to identify them quickly
