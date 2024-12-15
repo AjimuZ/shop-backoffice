@@ -11,6 +11,7 @@ import {
   RadialLinearScale,
   Title,
 } from 'chart.js';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart',
@@ -21,7 +22,7 @@ import {
 export class ChartComponent implements OnInit {
   statsCategories: StatsCategories[] = [];
 
-  constructor(private chartService: ChartService) {
+  constructor(private chartService: ChartService, private router: Router) {
     Chart.register(
       ArcElement,
       Tooltip,
@@ -30,6 +31,13 @@ export class ChartComponent implements OnInit {
       RadialLinearScale,
       Title
     );
+
+    // listen to route changes
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
   }
 
   async ngOnInit(): Promise<void> {
