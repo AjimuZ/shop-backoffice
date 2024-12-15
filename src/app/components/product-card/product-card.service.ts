@@ -11,7 +11,7 @@ export class ProductCardService {
   constructor(private inventoryService: InventoryService) {}
 
   // delete product by ID
-  deleteProductById(productId: string): void {
+  async deleteProductById(productId: string): Promise<void> {
     this.inventoryService
       .deleteProduct(productId)
       .pipe(

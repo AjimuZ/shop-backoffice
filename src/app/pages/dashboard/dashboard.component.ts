@@ -48,7 +48,6 @@ export class DashboardComponent implements OnInit {
     } 
   }
   
-  
   toggleLayout(layout: LayoutType) {
     this.layout = layout;
   }

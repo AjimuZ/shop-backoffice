@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { CommonModule } from '@angular/common';
-import { ReviewsComponent } from "../reviews/reviews.component";
+import { ReviewsComponent } from '../reviews/reviews.component';
 import { ProductCardService } from './product-card.service';
+import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-product-card',
@@ -13,16 +14,19 @@ import { ProductCardService } from './product-card.service';
 export class ProductCardComponent implements OnInit {
   @Input() product?: Product;
 
-  constructor(private productCardService: ProductCardService) {}
+  constructor(
+    private productCardService: ProductCardService,
+    private utilityService: UtilityService
+  ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
-  onDelete() {
-    if(this.product && this.product.id){
-      this.productCardService.deleteProductById(this.product.id);
+  async onDelete() {
+    if (this.product && this.product.id) {
+      await this.productCardService.deleteProductById(this.product.id);
+      setTimeout(() => {
+        this.utilityService.reloadLocation();
+      }, 1000);
     }
   }
-
 }

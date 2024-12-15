@@ -1,3 +1,4 @@
+import { UtilityService } from './../../services/utility.service';
 import { ProductForm } from './../../interfaces/product-form.interface';
 import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
@@ -32,7 +33,8 @@ export class AddProductComponent {
     private currencyPipe: CurrencyPipe,
     private renderer: Renderer2,
     private el: ElementRef,
-    private addProductService: AddProductService
+    private addProductService: AddProductService,
+    private utilityService: UtilityService
   ) {}
 
   // toggles between the numeric input and formatted text field.
@@ -86,7 +88,7 @@ export class AddProductComponent {
     });
   }
 
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
     this.formIsSubmitted = true;
 
     if (form.valid) {
@@ -100,8 +102,11 @@ export class AddProductComponent {
       };
 
       console.log(productData);
-      this.addProductService.addProduct(productData);
-      this.closeModalAddProductEvent.emit(false);
+      await this.addProductService.addProduct(productData);
+      //this.closeModalAddProductEvent.emit(false);
+      setTimeout(() => {
+        this.utilityService.reloadLocation();
+      }, 1000);
 
     } else {
       // apply CSS classes to clearly highlight missing fields, allowing the user to identify them quickly
