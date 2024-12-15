@@ -3,24 +3,28 @@ import { Injectable } from '@angular/core';
 import { InventoryService } from '../../services/inventory.service';
 import { Store } from '../../interfaces/store.interface';
 import { catchError, of } from 'rxjs';
+import { UtilityService } from '../../services/utility.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductCardService {
-  constructor(private inventoryService: InventoryService) {}
+  constructor(
+    private inventoryService: InventoryService,
+    private utilityService: UtilityService
+  ) {}
 
   // delete product by ID
-  async deleteProductById(productId: string): Promise<void> {
-    this.inventoryService
-      .deleteProduct(productId)
-      .pipe(
-        catchError((error) => {
-          console.error('error', error);
-          return of();
-        })
-      )
-      .subscribe();
+  deleteProductById(productId: string): void {
+    this.inventoryService.deleteProduct(productId).subscribe({
+      next: (product) => {
+        console.log('product deleted successfully:', product);
+        this.utilityService.reloadLocation();
+      },
+      error: (err) => {
+        console.error('error delete product:', err);
+        this.utilityService.reloadLocation();
+      },
+    });
   }
-
 }
