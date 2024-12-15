@@ -1,4 +1,4 @@
-<app-navbar (addProductEvent)="openAddProductModal()" 
+<app-navbar (openModalAddProductEvent)="toggleAddProductModal($event)"
             (toggleLayoutEvent) ="toggleLayout($event)"
             [currentlayout] = "layout">
 </app-navbar>
@@ -14,10 +14,10 @@
                 <div class="w-100 text-center">
                     <h1 class="modal-title fs-5 " id="addProductModalLabel">Add Product</h1>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button id="addProductModalCloseButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <app-add-product></app-add-product>
+                <app-add-product (closeModalAddProductEvent)="toggleAddProductModal($event)" ></app-add-product>
             </div>
         </div>
     </div>

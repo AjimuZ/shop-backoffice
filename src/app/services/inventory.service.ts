@@ -1,3 +1,4 @@
+import { ProductForm } from './../interfaces/product-form.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -30,7 +31,7 @@ export class InventoryService {
   }
 
   // add a new product
-  addProduct(product: Product): Observable<Product> {
+  addProduct(product: ProductForm): Observable<Product> {
     return this.http.post<Product>(`${this.apiUrl}/${this.storeId}/products`, product);
   }
 

@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent implements OnInit{
 
-  @Output() addProductEvent = new EventEmitter<void>();
+  @Output() openModalAddProductEvent = new EventEmitter<boolean>();
   @Output() toggleLayoutEvent = new EventEmitter<LayoutType>();
 
   @Input() currentlayout?: LayoutType;
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit{
   }
 
   onAddProduct() {
-    this.addProductEvent.emit();
+    this.openModalAddProductEvent.emit(true);
   }
 
   onToggleLayout() {

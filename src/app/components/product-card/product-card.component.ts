@@ -22,7 +22,7 @@ export class ProductCardComponent implements OnInit {
   onDelete() {
     if(this.product && this.product.id){
       this.productCardService.deleteProductById(this.product.id);
-  }
+    }
   }
 
 }
