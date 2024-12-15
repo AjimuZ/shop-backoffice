@@ -42,20 +42,12 @@ export class DashboardComponent implements OnInit {
       const addProductModal = new (window as any).bootstrap.Modal(
         addProductModalElement
       );
-      isOpen ? addProductModal.show() : this.closeModal(addProductModalElement);
+      isOpen ? addProductModal.show() : this.closeModal();
     }
   }
 
-  closeModal(modal: HTMLElement) {
-    if (modal) {
-      modal.hidden = true;
-    }
-    const modalBackdrop = document.querySelector(
-      '.modal-backdrop.fade.show'
-    ) as HTMLElement;
-    if (modalBackdrop) {
-      modalBackdrop.remove();
-    }
+  closeModal() {
+    window.location.reload();
   }
 
   toggleLayout(layout: LayoutType) {
