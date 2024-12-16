@@ -32,7 +32,7 @@ export class InventoryService {
 
   // add a new product
   addProduct(product: ProductForm): Observable<Product> {
-    return this.http.post<Product>(`${this.apiUrl}/${this.storeId}/products`, product);
+    return this.http.post<Product>(`${this.apiUrl}/${this.storeId}/products`, product, { responseType: 'text' as 'json' });
   }
 
   // retrieve a specific product by id

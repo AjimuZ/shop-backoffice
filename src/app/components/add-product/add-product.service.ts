@@ -22,7 +22,6 @@ export class AddProductService {
       },
       error: (err) => {
         console.error('error adding product:', err);
-        this.utilityService.reloadLocation();
       },
     });
   }

@@ -23,7 +23,6 @@ export class ProductCardService {
       },
       error: (err) => {
         console.error('error delete product:', err);
-        this.utilityService.reloadLocation();
       },
     });
   }
