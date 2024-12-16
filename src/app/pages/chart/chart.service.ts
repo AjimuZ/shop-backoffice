@@ -9,15 +9,20 @@ export class ChartService {
   constructor(private inventoryService: InventoryService) {}
 
   // stats list initialization calling api
-  async loadProducts(statsCategories: StatsCategories[]): Promise<void> {
-    this.inventoryService.getStatsCategories().subscribe({
-      next: (data: StatsCategories[]) => {
-        // erase the array and update it with new data
-        statsCategories.splice(0, statsCategories.length, ...data);
-      },
-      error: (error) => {
-        console.error('error retrieve stats:', error);
-      },
+  async loadProducts(statsCategories: StatsCategories[]): Promise<StatsCategories[]> {
+    return new Promise<StatsCategories[]>((resolve, reject) => {
+      this.inventoryService.getStatsCategories().subscribe({
+        next: (data: StatsCategories[]) => {
+          // erase the array and update it with new data
+          statsCategories.splice(0, statsCategories.length, ...data);
+          resolve(statsCategories);
+        },
+        error: (error) => {
+          console.error('error retrieve stats:', error);
+          reject(null);
+        },
+      });
     });
   }
+
 }
