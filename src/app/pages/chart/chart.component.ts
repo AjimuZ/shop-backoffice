@@ -40,9 +40,9 @@ export class ChartComponent implements OnInit {
     });
   }
 
-  async ngOnInit(): Promise<void> {
-    await this.chartService.loadProducts(this.statsCategories);
-    this.createChart();
+   async ngOnInit(): Promise<void> {
+     await this.chartService.loadProducts(this.statsCategories);
+     this.createChart();
   }
 
   createChart(): void {
@@ -78,12 +78,13 @@ export class ChartComponent implements OnInit {
         responsive: true,
         plugins: {
           legend: {
-            position: 'right',
+            position: 'left',
           },
           title: {
             display: true,
             text: 'Distribution of Products by Category',
-            align: 'end',
+            align: 'center',
+            position: 'bottom'
           },
         },
       },
