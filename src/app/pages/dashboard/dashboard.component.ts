@@ -30,9 +30,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     // product list initialization
-    await this.dashboardService.loadProducts(this.products);
+    this.dashboardService.loadProducts(this.products);
   }
 
   // if true, the Add Product modal is opened; otherwise, it is closed
