@@ -40,12 +40,17 @@ export class ChartComponent implements OnInit {
     });
   }
 
-   async ngOnInit(): Promise<void> {
-     await this.chartService.loadProducts(this.statsCategories);
-     this.createChart();
+  async ngOnInit(): Promise<void> {
+    await this.chartService.loadProducts(this.statsCategories);
+    this.createChart();
   }
 
   createChart(): void {
+    const canvas = document.getElementById('productsChart');
+    if(!canvas) return;
+    
+    this.resetCanvas();
+
     const categories = this.statsCategories.map((item) => item.category);
     const productCounts = this.statsCategories.map(
       (item) => item.numberOfProducts
@@ -84,13 +89,21 @@ export class ChartComponent implements OnInit {
             display: true,
             text: 'Distribution of Products by Category',
             align: 'center',
-            position: 'bottom'
+            position: 'bottom',
           },
         },
       },
     });
   }
 
-  // lifecycle: ensures the price input field is focused after each view check
-  ngAfterViewChecked(): void {}
+  resetCanvas() {
+    const oldCanvas = document.getElementById('productsChart');
+    if (oldCanvas) {
+      oldCanvas.remove();
+    }
+    const newCanvas = document.createElement('canvas');
+    newCanvas.id = 'productsChart';
+    const chartContainer = document.getElementById('chartContainer');
+    chartContainer?.appendChild(newCanvas);
+  }
 }
