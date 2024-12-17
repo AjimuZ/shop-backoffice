@@ -1,7 +1,9 @@
-<div 
-  *ngIf="isVisible" 
-  class="alert alert-danger alert-dismissible fade show position-fixed top-50 start-50 translate-middle"
-  role="alert">
-  <strong>{{ alertMessage }}</strong>
-  <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
-</div>
+
+<div *ngIf="isVisible" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50" (click)="onOverlayClick($event)">
+  <div 
+    class="alert alert-danger alert-dismissible fade show position-fixed top-50 start-50 translate-middle"
+    role="alert" (click)="stopPropagation($event)">
+    <strong>{{ alertMessage }}</strong>
+    <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+  </div>
+<div>

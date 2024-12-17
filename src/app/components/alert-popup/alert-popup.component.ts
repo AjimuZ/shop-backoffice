@@ -19,4 +19,14 @@ export class AlertPopupComponent {
   closeAlert(): void {
     this.isVisible = false;
   }
+
+  // detect clicks on overlay (outside alert)
+  onOverlayClick(event: MouseEvent) {
+    this.closeAlert();
+  }
+
+  // prevents click propagation inside the modal
+  stopPropagation(event: MouseEvent) {
+    event.stopPropagation();
+  }
 }

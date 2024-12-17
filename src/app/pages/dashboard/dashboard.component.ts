@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
 
   // detect clicks on overlay (outside modal)
   onOverlayClick(event: MouseEvent) {
-    this.closeModal();  // Chiude la modale se si clicca fuori
+    this.closeModal();
   }
 
   // prevents click propagation inside the modal
