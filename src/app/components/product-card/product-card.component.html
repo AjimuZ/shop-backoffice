@@ -1,5 +1,5 @@
 <div *ngIf="product">
-    <div class="card product-card shadow-lg p-3">
+    <div class="card product-card shadow-lg p-3" [ngClass]="{'product-card-height-panel': layout === 'panel', 'product-card-height-grid': layout === 'grid'}">
 
         <!-- delete product button -->
         <button type="button" class="position-absolute top-0 end-0 m-2 delete-btn" aria-label="Close" (click)="onDelete()">
@@ -12,7 +12,7 @@
         <div class="card-subtitle text-muted">Category: {{ product.data.category }}</div>
         <div class="card-text fw-bold">Price: {{ product.data.price | currency }}</div>
         <div class="card-text fw-medium">Employee: <span class="text-lilac">{{ product.data.employee || 'Not assigned' }}</span></div>
-        <div class="description-box mt-3 scrollable-content">
+        <div class="description-box mt-3 scrollable-content" [ngClass]="{'description-box-max-height-panel': layout === 'panel', 'description-box-max-height-grid': layout === 'grid'}">
             {{ product.data.description || 'No description available' }}
         </div>
         </div>

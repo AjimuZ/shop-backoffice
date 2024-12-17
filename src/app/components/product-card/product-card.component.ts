@@ -3,6 +3,7 @@ import { Product } from '../../interfaces/product.interface';
 import { CommonModule } from '@angular/common';
 import { ReviewsComponent } from '../reviews/reviews.component';
 import { ProductCardService } from './product-card.service';
+import { LayoutType } from '../../enums/layout-type';
 
 @Component({
   selector: 'app-product-card',
@@ -12,10 +13,9 @@ import { ProductCardService } from './product-card.service';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product?: Product;
+  @Input() layout?: LayoutType;
 
-  constructor(
-    private productCardService: ProductCardService,
-  ) {}
+  constructor(private productCardService: ProductCardService) {}
 
   ngOnInit(): void {}
 

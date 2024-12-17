@@ -1,7 +1,6 @@
 @use "../../styles/colors.scss" as *;
 
 .product-card {
-  height: 420px;
   min-width: 300px;
   border-radius: 8px;
   border: 2px solid $color-secondary;
@@ -16,11 +15,27 @@
 .description-box {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-height: 200px;
   overflow-y: auto;
   font-size: 0.9rem;
   color: $color-dark;
 }
+
+.product-card-height-grid {
+  height: 420px;
+}
+
+.product-card-height-panel {
+  height: 300px;
+}
+
+.description-box-max-height-grid {
+  max-height: 200px;
+}
+
+.description-box-max-height-panel {
+  max-height: 80px;
+}
+
 
 .card-footer {
   text-align: center;
@@ -39,14 +54,16 @@
   }
 }
 
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
 }
 
-.edit-icon, .delete-icon {
+.edit-icon,
+.delete-icon {
   width: 32px;
   height: 32px;
 

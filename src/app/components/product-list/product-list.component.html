@@ -9,7 +9,8 @@
     <ng-container *ngIf="products && products.length > 0">
       <app-product-card 
         *ngFor="let product of paginatedProducts();" 
-        [product]="product" 
+        [product] = "product"
+        [layout] = "layout"
         [ngClass]="{'col-12': layout === 'panel', 'col': layout === 'grid'}"
       ></app-product-card>
     </ng-container>
