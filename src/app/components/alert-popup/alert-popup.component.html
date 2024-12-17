@@ -1,0 +1,7 @@
+<div 
+  *ngIf="isVisible" 
+  class="alert alert-danger alert-dismissible fade show position-fixed top-50 start-50 translate-middle"
+  role="alert">
+  <strong>{{ alertMessage }}</strong>
+  <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+</div>
