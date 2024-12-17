@@ -6,19 +6,19 @@
 <app-product-list [products]="products" [layout]="layout"></app-product-list>
 
 <!-- modal add product -->
-
-<div class="modal fade modal-lg" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <div class="w-100 text-center">
-                    <h1 class="modal-title fs-5 " id="addProductModalLabel">Add Product</h1>
-                </div>
-                <button id="addProductModalCloseButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <app-add-product (closeModalAddProductEvent)="toggleAddProductModal($event)" ></app-add-product>
-            </div>
-        </div>
+ <div class="d-flex justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50" 
+    *ngIf="isModalOpen" (click)="onOverlayClick($event)">
+  <div class="custom-modal-content bg-white	p-4 rounded-3" (click)="stopPropagation($event)">
+    
+    <div class="modal-header text-center">
+            <h1 class="modal-title fs-5 w-100">Add Product</h1>
+            <button type="button" class="btn-close"  aria-label="Close" (click)="closeModal()"></button>
     </div>
+
+    <div class="custom-modal-body">
+        <app-add-product (closeModalAddProductEvent)="toggleAddProductModal($event)" ></app-add-product>
+    </div>
+
+  </div>
 </div>
+

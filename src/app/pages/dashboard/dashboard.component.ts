@@ -6,17 +6,19 @@ import { AddProductComponent } from '../../components/add-product/add-product.co
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { LayoutType } from '../../enums/layout-type';
 import { NavigationEnd, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ProductListComponent, AddProductComponent, NavbarComponent],
+  imports: [ProductListComponent, AddProductComponent, NavbarComponent, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
   products: Product[] = [];
   layout: LayoutType = LayoutType.grid; // default layout
+  isModalOpen = false;
 
   constructor(
     private dashboardService: DashboardService,
@@ -37,20 +39,29 @@ export class DashboardComponent implements OnInit {
 
   // if true, the Add Product modal is opened; otherwise, it is closed
   toggleAddProductModal(isOpen: boolean): void {
-    const addProductModalElement = document.getElementById('addProductModal');
-    if (addProductModalElement) {
-      const addProductModal = new (window as any).bootstrap.Modal(
-        addProductModalElement
-      );
-      isOpen ? addProductModal.show() : this.closeModal();
-    }
+      isOpen ? this.openModal() : this.closeModal();
+  }
+
+  openModal() {
+    this.isModalOpen = true; 
   }
 
   closeModal() {
-    window.location.reload();
+    this.isModalOpen = false;
+  }
+
+  // detect clicks on overlay (outside modal)
+  onOverlayClick(event: MouseEvent) {
+    this.closeModal();  // Chiude la modale se si clicca fuori
+  }
+
+  // prevents click propagation inside the modal
+  stopPropagation(event: MouseEvent) {
+    event.stopPropagation();
   }
 
   toggleLayout(layout: LayoutType) {
     this.layout = layout;
   }
+
 }
