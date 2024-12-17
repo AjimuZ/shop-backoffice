@@ -1,3 +1,21 @@
+@use "../../styles/colors.scss" as *;
+
 .container {
   max-width: 1200px;
+  min-height: 80vh;
+}
+
+.pagination {
+  margin: 20px 0;
+}
+
+.page-item.active .page-link {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+  color: white;
+}
+
+.page-item .page-link {
+  color: $color-secondary;
+  cursor: pointer;
 }

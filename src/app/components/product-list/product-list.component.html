@@ -1,4 +1,4 @@
-<div class="container mt-4 pb-5">
+<div class="container d-flex flex-column mt-4 pb-5">
   <div 
     class="row g-4" 
     [ngClass]="{
@@ -8,10 +8,34 @@
   >
     <ng-container *ngIf="products && products.length > 0">
       <app-product-card 
-        *ngFor="let product of products" 
+        *ngFor="let product of paginatedProducts();" 
         [product]="product" 
         [ngClass]="{'col-12': layout === 'panel', 'col': layout === 'grid'}"
       ></app-product-card>
     </ng-container>
   </div>
+
+  <nav *ngIf="products?.length" aria-label="page navigation" class="mt-auto">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="onPageChange(currentPage - 1)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+  
+      <li class="page-item" 
+          *ngFor="let page of pages" 
+          [class.active]="currentPage === page">
+        <a class="page-link" (click)="onPageChange(page)">
+          {{ page }}
+        </a>
+      </li>
+  
+      <li class="page-item" [class.disabled]="currentPage === pages.length">
+        <a class="page-link" (click)="onPageChange(currentPage + 1)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
