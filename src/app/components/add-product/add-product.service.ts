@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { InventoryService } from '../../services/inventory.service';
 import { Store } from '../../interfaces/store.interface';
 import { UtilityService } from '../../services/utility.service';
+import { ErrorPropagationService } from '../../services/error-propagation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,8 @@ import { UtilityService } from '../../services/utility.service';
 export class AddProductService {
   constructor(
     private inventoryService: InventoryService,
-    private utilityService: UtilityService
+    private utilityService: UtilityService,
+    private errorPropagationService: ErrorPropagationService
   ) {}
 
   // add product by calling the API
@@ -22,6 +24,7 @@ export class AddProductService {
       },
       error: (err) => {
         console.error('error adding product:', err);
+        this.errorPropagationService.propagateError('error adding product');
       },
     });
   }

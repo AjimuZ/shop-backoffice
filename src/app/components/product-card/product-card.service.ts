@@ -4,6 +4,7 @@ import { InventoryService } from '../../services/inventory.service';
 import { Store } from '../../interfaces/store.interface';
 import { catchError, of } from 'rxjs';
 import { UtilityService } from '../../services/utility.service';
+import { ErrorPropagationService } from '../../services/error-propagation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,8 @@ import { UtilityService } from '../../services/utility.service';
 export class ProductCardService {
   constructor(
     private inventoryService: InventoryService,
-    private utilityService: UtilityService
+    private utilityService: UtilityService,
+    private errorPropagationService: ErrorPropagationService
   ) {}
 
   // delete product by ID
@@ -22,7 +24,8 @@ export class ProductCardService {
         this.utilityService.reloadLocation();
       },
       error: (err) => {
-        console.error('error delete product:', err);
+        console.error('error deleting product:', err);
+        this.errorPropagationService.propagateError('Error deleting product');
       },
     });
   }
