@@ -36,11 +36,21 @@
   max-height: 80px;
 }
 
+// in case of too small screen the cards are on a single line even if the layout is grid
+// so let's resize them
+@media (max-width: 767px) {
+  .product-card {
+    height: 300px !important; 
+  }
+  .description-box {
+    max-height: 80px !important;
+  }
+}
 
 .card-footer {
   text-align: center;
   background: transparent;
-  border-top: none !important; // removes the top border
+  border-top: none !important; // remove the top border
 }
 
 .footer-text {
