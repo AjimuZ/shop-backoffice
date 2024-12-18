@@ -1,59 +1,173 @@
-# ShopBackoffice
+========================================
+**Project Title:**
+**Euris Frontend Developer Test - Shop Backoffice Application**
+========================================
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+**Objective**
+This is a backoffice application for managing an online shop's product catalog. Employees can:
 
-## Development server
+- **Add products**
+- **Delete products**
+- **View product reviews**
 
-To start a local development server, run:
+**Additional features include:**
+- **Changing the product layout between grid view and panel view.**
+- **Viewing a chart (Polar Area) displaying product distribution by category.**
 
-```bash
+----------------------------------------
+**Project Setup Instructions**
+----------------------------------------
+
+**1. Clone the Project**
+To clone this project from GitHub, run the following commands in your terminal:
+
+```
+git clone https://github.com/AjimuZ/shop-backoffice.git
+cd shop-backoffice
+```
+
+**2. Install Dependencies**
+Ensure Node.js is installed on your machine, then install the necessary packages:
+
+```
+npm install
+```
+
+**3. Run the Application**
+To start the development server:
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The application will be available at:
+http://localhost:4200
 
-## Code scaffolding
+----------------------------------------
+**How to Use the Application**
+----------------------------------------
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**Dashboard**
+- **View the list of products in either grid view or panel view.**
+- **Click the red delete button (🗑️) to remove a product.**
+- **Click "Show Reviews" to display reviews for a product.**
 
-```bash
-ng generate component component-name
+**Add Product**
+- **Click the "Add Product" button.**
+- **Fill in the product form (Title, Category, Price, Employee, Description).**
+- **Submit to add the product to the list.**
+
+**Chart View**
+- **Navigate to the "Chart" page to see a PolarArea chart displaying the distribution of products by category.**
+
+----------------------------------------
+**Running Automated Tests**
+----------------------------------------
+To run the unit tests:
+
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
 ng test
 ```
 
-## Running end-to-end tests
+This will execute all unit tests using Karma and Jasmine, displaying results in the terminal.
 
-For end-to-end (e2e) testing, run:
+----------------------------------------
+**API Information**
+----------------------------------------
+The project uses an external API to manage products.
 
-```bash
-ng e2e
+----------------------------------------
+**Technologies Used**
+----------------------------------------
+- **Angular 19**
+- **Bootstrap 5.3**
+- **Chart.js**
+
+========================================
+
+========================================
+**Titolo del Progetto:**
+**Euris Frontend Developer Test - Applicazione Backoffice del Negozio**
+========================================
+
+**Obiettivo**
+Questa applicazione di backoffice consente la gestione dei prodotti di un negozio online. I dipendenti possono:
+
+- **Aggiungere prodotti**
+- **Eliminare prodotti**
+- **Visualizzare le recensioni dei prodotti**
+
+**Funzionalità aggiuntive:**
+- **Cambiare la visualizzazione dei prodotti tra griglia e pannello.**
+- **Visualizzare un grafico (Polar Area) per la distribuzione dei prodotti per categoria.**
+
+----------------------------------------
+**Istruzioni per Configurare il Progetto**
+----------------------------------------
+
+**1. Clonare il Progetto**
+Clona il progetto dal repository GitHub con i seguenti comandi:
+
+```
+git clone https://github.com/AjimuZ/shop-backoffice.git
+cd shop-backoffice
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**2. Installare le Dipendenze**
+Assicurati di aver installato Node.js, quindi esegui:
 
-## Additional Resources
+```
+npm install
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**3. Avviare l'Applicazione**
+Per avviare il server di sviluppo:
+
+```
+ng serve
+```
+
+L'app sarà disponibile su:
+http://localhost:4200
+
+----------------------------------------
+**Come Usare l'Applicazione**
+----------------------------------------
+
+**Dashboard**
+- **Visualizza l'elenco dei prodotti in griglia o pannello.**
+- **Clicca sul pulsante rosso (🗑️) per eliminare un prodotto.**
+- **Clicca su "Show Reviews" per visualizzare le recensioni.**
+
+**Aggiungere un Prodotto**
+- **Clicca su "Add Product".**
+- **Compila i campi richiesti (Titolo, Categoria, Prezzo, Impiegato, Descrizione).**
+- **Invia il modulo per aggiungere il prodotto.**
+
+**Vista Grafico**
+- **Naviga alla sezione "Chart" per visualizzare il grafico PolarArea della distribuzione dei prodotti.**
+
+----------------------------------------
+**Eseguire i Test Automatici**
+----------------------------------------
+Per eseguire i test unitari:
+
+```
+ng test
+```
+
+I risultati saranno mostrati nella console usando Karma e Jasmine.
+
+----------------------------------------
+**Informazioni API**
+----------------------------------------
+L'app utilizza un'API esterna per la gestione dei prodotti.
+
+----------------------------------------
+**Tecnologie Utilizzate**
+----------------------------------------
+- **Angular 19**
+- **Bootstrap 5.3**
+- **Chart.js**
+
+========================================
