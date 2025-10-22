@@ -1,6 +1,6 @@
 ========================================
 **Project Title:**
-**Euris Frontend Developer Test - Shop Backoffice Application**
+**Shop Backoffice Application**
 ========================================
 
 **Objective**
