@@ -171,3 +171,30 @@ L'app utilizza un'API esterna per la gestione dei prodotti.
 - **Chart.js**
 
 
+
+---
+
+## CI/CD Pipeline (GitHub Actions)
+
+The repository now includes an automated pipeline in `.github/workflows/ci-cd.yml` with two jobs:
+
+1. **Build SSR app**
+   - installs dependencies with `npm ci`
+   - builds the application with `npm run build`
+   - publishes the `dist/shop-backoffice` folder as a workflow artifact
+
+2. **Build and publish container** (only on push to `main` and manual trigger)
+   - builds a Docker image from the `Dockerfile`
+   - pushes the image to GitHub Container Registry (`ghcr.io/<owner>/<repo>`)
+   - publishes tags based on commit SHA and `latest` for the default branch
+
+### Run in a deployed environment
+
+You can run the same container locally or on any container platform:
+
+```bash
+docker pull ghcr.io/<owner>/<repo>:latest
+docker run -p 4000:4000 -e PORT=4000 ghcr.io/<owner>/<repo>:latest
+```
+
+Then open `http://localhost:4000`.
